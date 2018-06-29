@@ -4,3 +4,13 @@
   backface-visibility: hidden;
   perspective: 1000px;
 }
+
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center {
+  @extend %flex-center;
+}

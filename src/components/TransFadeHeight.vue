@@ -4,7 +4,7 @@
   -- @author zhongxian_liang <zhongxian_liang@kingdee.com>
   -- @date 2018-06-29 11:14:47
   -- @last_modified_by zhongxian_liang <zhongxian_liang@kingdee.com>
-  -- @last_modified_date 2018-06-29 14:28:45
+  -- @last_modified_date 2018-06-29 17:18:58
   -- @copyright (c) 2018 @yfe/vue-transition
   -- --------------------------------------------------------
  -->

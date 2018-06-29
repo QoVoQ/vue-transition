@@ -25,7 +25,7 @@
         <div
           v-else
           key="2"
-          class="text">Lorem ipsum dolor sit amet consectetur adipisicing
+          class="text test">Lorem ipsum dolor sit amet consectetur adipisicing
           elit. Dolores,
           explicabo ea veritatis fugiat sequi dolorem cupiditate aut rerum
           aliquid, voluptatem placeat amet doloremque aspernatur incidunt
@@ -84,6 +84,19 @@
       empora fuga? A sint porro impedit voluptatibus? Repellat quidem
       cupiditate esse alias!
     </p>
+    <section>
+      <transition name="dialog-pop-out">
+        <div
+          v-show="control[3].open"
+          class="dialog-ctn"
+          @click="toggle(3)">
+          <div class="dialog">
+            This is dialog
+          </div>
+        </div>
+      </transition>
+      <button @click="toggle(3)">toggle</button>
+    </section>
   </div>
 </template>
 
@@ -115,8 +128,8 @@ export default {
 <style lang="scss">
   @import '~@/styles/animation.scss';
   @import '~@/styles/utils.scss';
+
   #app {
-    @include forceGPU(height);
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -124,9 +137,19 @@ export default {
     color: #2c3e50;
     margin-top: 60px;
   }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
 </style>
 
 <style lang="scss" scoped>
+  @import '~@/styles/utils.scss';
   .link {
     display: block;
     color: red;
@@ -135,6 +158,21 @@ export default {
   .text {
     max-width: 50%;
     margin: auto;
+  }
+
+  .dialog-ctn {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    @extend %flex-center;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .dialog {
+    background: purple;
   }
 </style>
 

@@ -60,3 +60,40 @@
 }
 
 /* transition page-slide end  */
+
+/* transition dialog-pop-out start  */
+.dialog-pop-out-enter-active,
+.dialog-pop-out-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.dialog-pop-out-enter,
+.dialog-pop-out-leave-to {
+  opacity: 0;
+  transform: translateY(-3em);
+}
+
+/* transition dialog-pop-out end  */
+
+/* transition list-stagger end  */
+.list-stagger-ctn {
+  position: relative;
+}
+
+.list-stagger-item {
+  transition: all 0.6s;
+}
+
+.list-stagger-enter,
+.list-stagger-leave-to {
+  opacity: 0;
+  transform: translateY(2em);
+}
+
+.list-stagger-leave-active {
+  position: absolute;
+  width: 100%;
+}
+/* transition list-stagger end  */
