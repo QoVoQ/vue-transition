@@ -1,0 +1,37 @@
+/* transition height-expand start  */
+.height-expand-enter-active,
+.height-expand-leave-active {
+  transition: height 0.3s;
+  overflow: hidden;
+}
+
+/* transition height-expand end  */
+
+/* transition fade-simple start  */
+
+.fade-simple-enter-active,
+.fade-simple-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-simple-enter,
+.fade-simple-leave-to {
+  opacity: 0;
+}
+
+/* transition fade-simple end  */
+
+/* transition fade-height start  */
+
+.fade-height-enter-active,
+.fade-height-leave-active {
+  transition: opacity 0.3s, height 0.3s;
+  overflow: hidden;
+}
+
+.fade-height-enter,
+.fade-height-leave-to {
+  opacity: 0;
+}
+
+/* transition fade-height end  */
