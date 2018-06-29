@@ -18,7 +18,8 @@ module.exports = {
         ignoreTemplateLiterals: true,
         ignoreRegExpLiterals: true
       }
-    ]
+    ],
+    "no-nested-ternary": "off"
   },
   parserOptions: {
     parser: "babel-eslint"

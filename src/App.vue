@@ -39,7 +39,7 @@
       <button @click="toggle(1)">toggle</button>
     </section>
     <section>
-      <trans-fade-height>
+      <trans-fade-height :slidable="false">
         <div
           v-if="control[2].open"
           key="1"
@@ -71,6 +71,9 @@
       <router-link
         :to="{ name: 'vb' }"
         class="link">to vb</router-link>
+      <router-link
+        :to="{ name: 'vbSub' }"
+        class="link">to vbSub</router-link>
     </nav>
     <trans-fade-height>
       <router-view class="router-view"/>
