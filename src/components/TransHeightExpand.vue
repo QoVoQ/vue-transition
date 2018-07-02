@@ -4,13 +4,14 @@ export default {
   name: 'TransHeightExpand',
   functional: true,
   render(createElement, context) {
-    /* eslint-disable no-unused-expressions */
+    // console.log(context);
     const transitionAttr = {
       props: {
         // @TODO add prop: duration
         name: 'height-expand',
       },
       on: {
+        ...context.listeners,
         enter(ele) {
           // to get original size
           const { width } = getComputedStyle(ele);
@@ -37,9 +38,14 @@ export default {
           requestAnimationFrame(() => {
             ele.style.height = height;
           });
+
+          context.listeners.enter && context.listeners.enter(ele);
         },
         afterEnter(ele) {
+          console.log(123);
           ele.style.height = 'auto';
+          context.listeners['after-enter'] && context.listeners['after-enter'](ele);
+          context.listeners.afterEnter && context.listeners.afterEnter(ele);
         },
         leave(ele) {
           const { height } = getComputedStyle(ele);
@@ -51,12 +57,12 @@ export default {
           requestAnimationFrame(() => {
             ele.style.height = '0';
           });
+
+          context.listeners.leave && context.listeners.leave(ele);
         },
       },
     };
     return createElement('transition', transitionAttr, context.children);
-
-    /* eslint-enable no-unused-expressions */
   },
 };
 </script>

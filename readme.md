@@ -11,7 +11,8 @@
 
 ### Feature
 
-- [ ] configurable transition duration
+- [ ] Configurable transition duration
+- [x] Props and listeners pass by
 
 ## Pop Out
 

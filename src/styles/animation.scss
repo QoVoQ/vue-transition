@@ -72,7 +72,7 @@
 .dialog-pop-out-enter,
 .dialog-pop-out-leave-to {
   opacity: 0;
-  transform: translateY(-3em);
+  transform: translate3d(0, -3em, 0);
 }
 
 /* transition dialog-pop-out end  */

@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <section>
-      <trans-height-expand>
+      <trans-height-expand
+        @after-enter="log">
         <div
           v-show="control[0].open"
           class="text">Lorem ipsum dolor sit amet consectetur adipisicing
@@ -13,7 +14,8 @@
       <button @click="toggle(0)">toggle</button>
     </section>
     <section>
-      <trans-fade-simple>
+      <trans-fade-simple
+        @after-leave="log">
         <div
           v-if="control[1].open"
           key="1"
@@ -39,7 +41,9 @@
       <button @click="toggle(1)">toggle</button>
     </section>
     <section>
-      <trans-fade-height :slidable="false">
+      <trans-fade-height
+        :slidable="false"
+        @after-enter="log">
         <div
           v-if="control[2].open"
           key="1"
@@ -97,6 +101,9 @@
       </transition>
       <button @click="toggle(3)">toggle</button>
     </section>
+    <section>
+      <button @click="toast">show toast</button>
+    </section>
   </div>
 </template>
 
@@ -120,6 +127,13 @@ export default {
   methods: {
     toggle(idx) {
       this.control[idx].open = !this.control[idx].open;
+    },
+    log() {
+      debugger;
+      console.log('Sth happened.11');
+    },
+    toast() {
+      this.$toast(`${new Date()} 来自toast`);
     },
   },
 };

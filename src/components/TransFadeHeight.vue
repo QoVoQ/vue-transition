@@ -1,27 +1,18 @@
-<!--
-  -- --------------------------------------------------------
-  -- @file TransFadeHeight.vue
-  -- @author zhongxian_liang <zhongxian_liang@kingdee.com>
-  -- @date 2018-06-29 11:14:47
-  -- @last_modified_by zhongxian_liang <zhongxian_liang@kingdee.com>
-  -- @last_modified_date 2018-06-29 17:18:58
-  -- @copyright (c) 2018 @yfe/vue-transition
-  -- --------------------------------------------------------
- -->
-
 <template>
   <transition
     :name="transitionName"
     mode="out-in"
-    @beforeLeave="beforeLeave"
+    v-on="$listeners"
     @enter="enter"
-    @afterEnter="afterEnter">
+    @after-enter="afterEnter"
+    @before-leave="beforeLeave">
     <slot/>
   </transition>
 </template>
 
 
 <script>
+
 const DEFAULT_TRANSITION = 'fade-height';
 
 export default {
@@ -66,11 +57,9 @@ export default {
 
       element.style.height = this.prevHeight;
 
-      /* eslint-disable */
       // force render
 
       getComputedStyle(element).height;
-      /* eslint-enable */
 
       requestAnimationFrame(() => {
         element.style.height = height;
