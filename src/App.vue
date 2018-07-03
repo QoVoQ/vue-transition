@@ -89,17 +89,7 @@
       cupiditate esse alias!
     </p>
     <section>
-      <transition name="dialog-pop-out">
-        <div
-          v-show="control[3].open"
-          class="dialog-ctn"
-          @click="toggle(3)">
-          <div class="dialog">
-            This is dialog
-          </div>
-        </div>
-      </transition>
-      <button @click="toggle(3)">toggle</button>
+      <button @click="showDialog">dialog</button>
     </section>
     <section>
       <button @click="toast">show toast</button>
@@ -111,6 +101,7 @@
 import TransHeightExpand from './components/TransHeightExpand.vue';
 import TransFadeSimple from './components/TransFadeSimple.vue';
 import TransFadeHeight from './components/TransFadeHeight.vue';
+import Confirmation from './components/Confirmation/Confirmation.vue';
 
 export default {
   name: 'App',
@@ -118,6 +109,7 @@ export default {
     TransHeightExpand,
     TransFadeSimple,
     TransFadeHeight,
+    Confirmation,
   },
   data() {
     return {
@@ -129,11 +121,26 @@ export default {
       this.control[idx].open = !this.control[idx].open;
     },
     log() {
-      debugger;
       console.log('Sth happened.11');
     },
     toast() {
       this.$toast(`${new Date()} 来自toast`);
+    },
+    showDialog() {
+      this.$confirm({
+        title: 'Care you',
+        msg: 'Are you ok ?',
+        isSingleBtn: false,
+        showClose: true,
+        confirmBtnText: 'ok',
+        cancelBtnText: 'cancel',
+      })
+        .then(() => {
+          console.log('confirmed.');
+        })
+        .catch(() => {
+          console.log('rejected.');
+        });
     },
   },
 };
@@ -142,6 +149,7 @@ export default {
 <style lang="scss">
   @import '~@/styles/animation.scss';
   @import '~@/styles/utils.scss';
+  @import '~@/styles/widgets.scss';
 
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;

@@ -1,3 +1,8 @@
+$mask-wrapper-z-index: 10;
+$mask-wrapper-bg: rgba(0, 0, 0, 0.1);
+$ctn-border-radius: 6px;
+$ctn-box-shadow: 0 3px 8px 1px rgba(0, 0, 0, 0.2);
+
 @mixin forceGPU($property) {
   will-change: $property;
   transform: translateZ(0);
@@ -13,4 +18,20 @@
 
 .flex-center {
   @extend %flex-center;
+}
+
+%mask-wrapper {
+  position: fixed;
+  z-index: $mask-wrapper-z-index;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  @extend %flex-center;
+  background: $mask-wrapper-bg;
+}
+
+%pop-out-ctn {
+  border-radius: $ctn-border-radius;
+  box-shadow: $ctn-box-shadow;
 }

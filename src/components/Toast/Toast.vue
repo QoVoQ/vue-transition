@@ -1,15 +1,14 @@
 <template>
   <transition
     name="dialog-pop-out"
-    appear
     @after-leave="afterLeave">
     <div
       v-show="visible"
       :style="{ bottom: posBottom }"
-      class="y-toast-wrap">
-      <div class="y-toast-container">
+      class="y-toast__wrapper">
+      <div class="y-toast__container">
         <div
-          class="y-toast-body"
+          class="y-toast__body"
           v-html="msg"/>
       </div>
     </div>
@@ -85,7 +84,7 @@ export default {
 </script>
 
 <style>
-  .y-toast-wrap {
+  .y-toast__wrapper {
     position: fixed;
     bottom: 30%;
     width: 100%;
@@ -94,7 +93,7 @@ export default {
     transition: bottom 0.2s;
   }
 
-  .y-toast-container {
+  .y-toast__container {
     position: relative;
     display: inline-block;
     padding: 14px 40px;
