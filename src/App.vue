@@ -93,7 +93,9 @@
       <button @click="showDialog">dialog</button>
     </section>
     <section>
-      <button @click="toast">show toast</button>
+      <btn
+        v-ripple
+        @click="toast">show toast</btn>
     </section>
   </div>
 </template>
@@ -103,6 +105,7 @@ import TransHeightExpand from './components/TransHeightExpand.vue';
 import TransFadeSimple from './components/TransFadeSimple.vue';
 import TransFadeHeight from './components/TransFadeHeight.vue';
 import Confirmation from './components/Confirmation/Confirmation.vue';
+import Btn from './components/Button.vue';
 
 export default {
   name: 'App',
@@ -111,6 +114,7 @@ export default {
     TransFadeSimple,
     TransFadeHeight,
     Confirmation,
+    Btn,
   },
   data() {
     return {

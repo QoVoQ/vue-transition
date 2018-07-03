@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Toast from '@/components/Toast';
 import Confirm from '@/components/Confirmation';
 import Loading from '@/components/Loading';
+import VRipple from '@/directives/v-ripple';
 import App from './App.vue';
 import store from './store';
 import router from './router';
@@ -25,6 +26,8 @@ Object.defineProperty(Vue.prototype, '$loading', {
     return Loading;
   },
 });
+
+Vue.directive('ripple', VRipple);
 
 new Vue({
   store,

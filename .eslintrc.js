@@ -22,6 +22,7 @@ module.exports = {
     'no-nested-ternary': 'off',
     'no-unused-expressions': 'off',
     'no-underscore-dangle': 'off',
+    'no-mixed-operators': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint',

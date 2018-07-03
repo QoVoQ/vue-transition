@@ -8,6 +8,7 @@
 - [x] TransHeightExpand
 - [x] TransFadeHeight
 - [x] TransGroupStagger
+- [ ] Ripple
 
 ### Feature
 
@@ -19,6 +20,7 @@
 - [x] Toast
 - [x] Dialog
 - [x] Loading
+- [ ] Tooltip
 
 ## Template
 
@@ -28,6 +30,10 @@
 ## Widgets
 
 - [ ] Pagination
+
+## Icon
+
+- [ ] FontAwesome
 
 ## Code Quality
 
