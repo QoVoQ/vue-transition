@@ -6,12 +6,11 @@ const ConfirmCtr = Vue.extend(Confirmation);
  * @param options
  * {
  *   msg {String}: 显示的信息
- *   bodyMsg {String}: 补充信息
- *   onEnsure: {Function}: 点击 确定 的回调函数
- *   ensureTxt {String}: 左边按钮描述
+ *   title {String}: title
+ *   onConfirm: {Function}: 点击 确定 的回调函数
+ *   confirmBtnText {String}: 左边按钮描述
  *   onCancel {Function}: 点击 取消 的回调函数
- *   cancelTxt {String}: 右边按钮描述
- *   type {String}: 'confirm' | 'alert'
+ *   cancelBtnText {String}: 右边按钮描述
  * }
  *
  * 用法： this.$confirm已注册为全局方法， 所以可以在组件中直接调用 this.$confirm({msg, onEnsure...})

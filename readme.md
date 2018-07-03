@@ -16,14 +16,18 @@
 
 ## Pop Out
 
-- [ ] Toast
-- [ ] Dialog
-- [ ] Loading
+- [x] Toast
+- [x] Dialog
+- [x] Loading
 
 ## Template
 
 - [ ] [Dynamic layout](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/)
 - [ ] [CRUD](https://markus.oberlehner.net/blog/building-renderless-components-to-handle-crud-operations-in-vue/)
+
+## Widgets
+
+- [ ] Pagination
 
 ## Code Quality
 

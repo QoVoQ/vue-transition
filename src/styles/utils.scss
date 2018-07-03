@@ -1,7 +1,4 @@
-$mask-wrapper-z-index: 10;
-$mask-wrapper-bg: rgba(0, 0, 0, 0.1);
-$ctn-border-radius: 6px;
-$ctn-box-shadow: 0 3px 8px 1px rgba(0, 0, 0, 0.2);
+@import "~@/styles/var.scss";
 
 @mixin forceGPU($property) {
   will-change: $property;
@@ -25,8 +22,8 @@ $ctn-box-shadow: 0 3px 8px 1px rgba(0, 0, 0, 0.2);
   z-index: $mask-wrapper-z-index;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
   @extend %flex-center;
   background: $mask-wrapper-bg;
 }

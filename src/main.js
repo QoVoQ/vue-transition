@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Toast from '@/components/Toast';
 import Confirm from '@/components/Confirmation';
+import Loading from '@/components/Loading';
 import App from './App.vue';
 import store from './store';
 import router from './router';
@@ -16,6 +17,12 @@ Object.defineProperty(Vue.prototype, '$toast', {
 Object.defineProperty(Vue.prototype, '$confirm', {
   get() {
     return Confirm;
+  },
+});
+
+Object.defineProperty(Vue.prototype, '$loading', {
+  get() {
+    return Loading;
   },
 });
 

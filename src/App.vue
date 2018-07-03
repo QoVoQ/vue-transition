@@ -67,6 +67,7 @@
           itaque. Officia est dolor saepe.</div>
       </trans-fade-height>
       <button @click="toggle(2)">toggle</button>
+      <button @click="showLoading">show loading</button>
     </section>
     <nav>
       <router-link
@@ -141,6 +142,12 @@ export default {
         .catch(() => {
           console.log('rejected.');
         });
+    },
+    showLoading() {
+      this.$loading('sdfer');
+      setTimeout(() => {
+        this.$loading(false);
+      }, 3000);
     },
   },
 };
