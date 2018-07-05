@@ -14,7 +14,7 @@
             <div class="title">
               <slot :name="`accordion-item-title-${idx}`"/>
             </div>
-            <i class="icon icon-down-o"/>
+            <i class="fa fa-arrow-down"/>
           </div>
           <div class="accordion-item-content">
             <slot :name="`accordion-item-content-${idx}`"/>
@@ -75,7 +75,7 @@ export default {
       // last
       const animatingItemCtn = this.firstSnapshot.animating.DOM;
       const animatingItem = animatingItemCtn.querySelector('.accordion-item');
-      const icon = animatingItem.querySelector('.icon-down-o');
+      const icon = animatingItem.querySelector('.fa-arrow-down');
       if (!animatingItemCtn) { throw new Error('failed to find animating accordion content'); }
 
       this.openState[animatingIdx]
@@ -102,27 +102,27 @@ export default {
         endDh = dh;
       }
 
-      anime(
-        animatingItemCtn,
-        { translateY: [endDh, -startDh] },
-        {
-          duration: this.duration,
-          complete: (ele) => {
-            ele[0].style.cssText = '';
-            this.openState[animatingIdx] && animatingItemCtn.classList.add('collapsed');
-            this.openState[animatingIdx] = !this.openState[animatingIdx];
-            accordionList.style.height = '';
-            this.animatingLock = false;
-          },
+      anime({
+        targets: animatingItemCtn,
+        translateY: [-startDh, endDh],
+        duration: this.duration,
+        easing: 'linear',
+        complete: () => {
+          this.openState[animatingIdx] && animatingItemCtn.classList.add('collapsed');
+          animatingItemCtn.style.cssText = '';
+          this.openState[animatingIdx] = !this.openState[animatingIdx];
+          accordionList.style.height = '';
+          this.animatingLock = false;
         },
-      );
+      });
 
       anime({
         targets: animatingItem,
-        translateY: [-endDh, startDh],
+        translateY: [startDh, -endDh],
         duration: this.duration,
-        complete: (ele) => {
-          ele[0].style.cssText = '';
+        easing: 'linear',
+        complete: () => {
+          animatingItem.style.cssText = '';
         },
       });
 
@@ -140,11 +140,12 @@ export default {
         if (startDy === endDy) { return; }
 
         anime({
-          target: item.DOM,
-          translateY: [-endDy, startDy],
+          targets: item.DOM,
+          translateY: [startDy, -endDy],
           duration: this.duration,
-          complete: (ele) => {
-            ele[0].style.cssText = '';
+          easing: 'linear',
+          complete: () => {
+            item.DOM.style.cssText = '';
           },
         });
       });
@@ -212,13 +213,13 @@ export default {
     color: #222;
   }
 
-  .accordion-item-title .icon-down-o {
+  .accordion-item-title .fa-arrow-down {
     margin-right: 1.75rem;
     color: #9a9a9a;
     transition: transform 0.3s;
   }
 
-  .accordion-item-title .icon-down-o.inverted {
+  .accordion-item-title .fa-arrow-down.inverted {
     transform: rotate(180deg);
   }
 

@@ -49,9 +49,10 @@ export default {
     },
   },
   created() {
-    setInterval(() => {
-      this.counter += 1;
-    }, 1000);
+    // @TODO find memory leak
+    // setInterval(() => {
+    //   this.counter += 1;
+    // }, 1000);
   },
   methods: {
     increaseItem(idx) {

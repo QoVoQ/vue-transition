@@ -95,6 +95,8 @@
     <section>
       <btn
         v-ripple
+        :class="{ large: otherControl.large }"
+        class="bd"
         @click="toast">show toast</btn>
     </section>
   </div>
@@ -119,6 +121,9 @@ export default {
   data() {
     return {
       control: Array(10).fill(0).map(() => ({ open: true })),
+      otherControl: {
+        large: false,
+      },
     };
   },
   methods: {
@@ -129,6 +134,7 @@ export default {
       console.log('Sth happened.11');
     },
     toast() {
+      this.otherControl.large = !this.otherControl.large;
       this.$toast(`${new Date()} 来自toast`);
     },
     showDialog() {
@@ -206,6 +212,15 @@ export default {
 
   .dialog {
     background: purple;
+  }
+
+  .large {
+    width: 70px;
+    height: 70px;
+  }
+
+  .bd {
+    border: 1px solid red;
   }
 </style>
 

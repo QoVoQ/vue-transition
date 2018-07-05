@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import bus from 'vue-smart-bus';
 import Toast from '@/components/Toast';
 import Confirm from '@/components/Confirmation';
 import Loading from '@/components/Loading';
@@ -28,6 +29,7 @@ Object.defineProperty(Vue.prototype, '$loading', {
 });
 
 Vue.directive('ripple', VRipple);
+Vue.use(bus);
 
 new Vue({
   store,
